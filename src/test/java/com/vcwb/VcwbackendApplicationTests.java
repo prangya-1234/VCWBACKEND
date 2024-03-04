@@ -1,0 +1,13 @@
+package com.vcwb;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class VcwbackendApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}
