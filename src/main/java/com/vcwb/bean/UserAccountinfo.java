@@ -15,7 +15,7 @@ public class UserAccountinfo {
 		
 		UserAccount user = new UserAccount();
 			if(id!=null  && id!="0")			
-				user.setId(Long.valueOf(id));
+		    user.setId(Long.valueOf(id));
 			user.setUserName(userName);
 			user.setEmailId(emailId);
 			user.setPassword(password);
