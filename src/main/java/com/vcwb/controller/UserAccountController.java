@@ -1,11 +1,17 @@
 package com.vcwb.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
+import java.util.*;
 import com.vcwb.bean.UserAccountinfo;
+import com.vcwb.entity.UserAccount;
+import com.vcwb.exception.UserNotFoundException;
 import com.vcwb.repository.UserAccountRepository;
 import com.vcwb.service.UserAccountService;
 
@@ -18,44 +24,37 @@ public class UserAccountController {
 	
 	@RequestMapping(value="/register" , method=RequestMethod.POST) 
 	UserAccount register(@RequestBody UserAccountinfo userAccountinfo) {
-		return .register(UserAccountinfo);		
+		return userAccountService .register(userAccountinfo);		
 	}
 	 @PutMapping("/edit/{id}")
 	 UserAccount  update(@RequestBody UserAccount newUser, @PathVariable Long id) {
-	        return passengerRegRepo.findById(id)
+	        return userAccountRepository.findById(id)
 	                .map(user -> {
 	                    user.setUserName(newUser.getUserName());
-	                    user.setAge(newUser.getAge());
-	                    user.setDob(newUser.getDob());
-	                    user.setPhoneNo(newUser.getPhoneNo());
-	                    user.setNationality(newUser.getNationality());
 	                    user.setEmailId(newUser.getEmailId());
-	                    user.setGender(newUser.getGender());
-	                    user.setPassportNo(newUser.getPassportNo());
-	                    user.setVaccineId(newUser.getVaccineId());
-	                    user.setAddress(newUser.getAddress());
-	                    return passengerRegRepo.save(user);
+	                    user.setPassword(newUser.getPassword());
+	                    return userAccountRepository.save(user);
 	                }).orElseThrow(() -> new UserNotFoundException(id));
 	    }
 	@GetMapping("/getAll")
 	
-	public List<PassengerRegistration> getAll(){
+	public List<UserAccount> getAll(){
 		
-		return passengerRegRepo.findAll();
+		return userAccountRepository.findAll();
 	}
 	 
     @GetMapping("/getAll/{id}")
-    PassengerRegistration getUserById(@PathVariable Long id) {
-        return passengerRegRepo.findById(id)
+    UserAccount getUserById(@PathVariable Long id) {
+        return userAccountRepository.findById(id)
                 .orElseThrow(() -> new UserNotFoundException(id));
     }
 
     @DeleteMapping("/delete/{id}")
     String deleteUser(@PathVariable Long id){
-        if(!passengerRegRepo.existsById(id)){
+        if(!userAccountRepository.existsById(id)){
             throw new UserNotFoundException(id);
         }
-        passengerRegRepo.deleteById(id);
+        userAccountRepository .deleteById(id);
         return  "User with id "+id+" has been deleted success.";
     }
 
