@@ -18,23 +18,17 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 @AllArgsConstructor
-@Table(name =  "user", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
-public class UserAccount {
+@Table(name =  "VideoConferencingRoom", uniqueConstraints = @UniqueConstraint(columnNames = "roomName"))
+public class VideoConferencingRooms {
 	@Id
 	@GeneratedValue(strategy =  GenerationType.IDENTITY)
 	private Long id;
-	
-	@Column(name = "username")
-	private String userName;
-	@Column(name = "emailid")
-	private String emailId;
-	@Column(name = "password")
-	private String password;
+	@Column(name = "roomname")
+	private String roomName ;
+	@Column(name = "isoccupied")
+	private String isOccupied ;
+	@Column(name = "maxoccupancy")
+	private String maxOccupancy ;
 
 	
-		
-		
-	}
-	
-
-
+}

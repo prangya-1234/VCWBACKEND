@@ -8,13 +8,16 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
 import java.util.*;
 import com.vcwb.bean.UserAccountinfo;
 import com.vcwb.entity.UserAccount;
 import com.vcwb.exception.UserNotFoundException;
 import com.vcwb.repository.UserAccountRepository;
 import com.vcwb.service.UserAccountService;
-
+@RestController
+@RequestMapping("/api/v1/user")
 public class UserAccountController {
 	@Autowired
 	UserAccountService userAccountService ;
