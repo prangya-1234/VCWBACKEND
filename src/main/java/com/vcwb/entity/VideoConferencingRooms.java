@@ -23,12 +23,11 @@ public class VideoConferencingRooms {
 	@Id
 	@GeneratedValue(strategy =  GenerationType.IDENTITY)
 	private Long id;
-	@Column(name = "roomname")
+	@Column(name = "room_name")
 	private String roomName ;
-	@Column(name = "isoccupied")
-	private String isOccupied ;
-	@Column(name = "maxoccupancy")
-	private String maxOccupancy ;
+	@Column(name = "room_admin_name")
+	private String roomAdminName ;
+	
 
 	
 }

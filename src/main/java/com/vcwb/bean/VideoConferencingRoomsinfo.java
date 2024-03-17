@@ -6,8 +6,7 @@ import lombok.Data;
 public class VideoConferencingRoomsinfo {
 	private String id;
 	private String roomName;
-	private String isOccupied;
-	private String maxOccupancy;
+	private String roomAdminName;
 	
 	
 	public VideoConferencingRooms convertToEntity() {
@@ -16,8 +15,7 @@ public class VideoConferencingRoomsinfo {
 			if(id!=null && id!="0")			
 			room.setId(Long.valueOf(id));
 			room.setRoomName(roomName);
-			room.setIsOccupied(isOccupied);
-			room.setMaxOccupancy(maxOccupancy);
+			room.setRoomAdminName(roomAdminName);
 			
 			return room ;
 			
