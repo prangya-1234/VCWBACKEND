@@ -24,11 +24,19 @@ public class UserAccount {
 	@GeneratedValue(strategy =  GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(name = "username")
-	private String userName;
-	@Column(name = "emailid")
+	@Column
+	private String firstName;
+	@Column
+	private String middleName;
+	@Column
+	private String lastName;
+	@Column
+	private String dob;
+	@Column
+	private String mobileNo;
+	@Column
 	private String emailId;
-	@Column(name = "password")
+	@Column
 	private String password;
 
 	

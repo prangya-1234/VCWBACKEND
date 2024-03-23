@@ -33,7 +33,11 @@ public class UserAccountController {
 	 UserAccount  update(@RequestBody UserAccount newUser, @PathVariable Long id) {
 	        return userAccountRepository.findById(id)
 	                .map(user -> {
-	                    user.setUserName(newUser.getUserName());
+	                    user.setFirstName(newUser.getFirstName());
+	                    user.setMiddleName(newUser.getMiddleName());
+	                    user.setLastName(newUser.getLastName());
+	                    user.setDob(newUser.getDob());
+	                    user.setMobileNo(newUser.getMobileNo());
 	                    user.setEmailId(newUser.getEmailId());
 	                    user.setPassword(newUser.getPassword());
 	                    return userAccountRepository.save(user);

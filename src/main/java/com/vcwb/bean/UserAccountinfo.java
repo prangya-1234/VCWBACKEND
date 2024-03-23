@@ -6,7 +6,11 @@ import lombok.Data;
 @Data
 public class UserAccountinfo {
 	private String id;
-	private String userName;
+	private String firstName;
+	private String middleName;
+	private String lastName;
+	private String dob;
+	private String mobileNo;
 	private String emailId;
 	private String password;
 	
@@ -16,7 +20,11 @@ public class UserAccountinfo {
 		UserAccount user = new UserAccount();
 			if(id!=null  && id!="0")			
 		    user.setId(Long.valueOf(id));
-			user.setUserName(userName);
+			user.setFirstName(firstName);
+			user.setMiddleName(middleName);
+			user.setLastName(lastName);
+			user.setDob(dob);
+			user.setMobileNo(mobileNo);
 			user.setEmailId(emailId);
 			user.setPassword(password);
 			
